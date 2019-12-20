@@ -17,7 +17,9 @@ auth = client.authorize()
 
 with open('uploads.csv') as csvfile:
     reader = csv.DictReader(csvfile)
-    for line in reader:
+    lines = [l for l in reader]
+    lines.reverse()
+    for line in lines:
         try:
             tags, episodes = process_line(line)
             for e in episodes:
